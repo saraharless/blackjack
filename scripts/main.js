@@ -10,16 +10,29 @@
 */
 
 
+function handValue(hand) {
+  let handTotal = 0;
 
-//write array
-// parse through array
+  for (let i = 0; i < hand.length; i++) {
+    let card = hand[i];
 
-function handValue (hand) {
+    if (card === 'K' || card === 'Q' || card === 'J') {
+      handTotal += 10
+    } else if (card != 'A') {
+      handTotal += parseInt(card, 10)
+    }
+  }
 
-
-  return;
+  for (let i = 0; i < hand.length; i++) {
+    if (hand[i] === 'A') {
+      if (handTotal > 10)
+        handTotal += 1;
+      else
+      handTotal += 11;
+    }
+  }
+  return handTotal;
 }
-
 
 /* -----  Hints ------
 
